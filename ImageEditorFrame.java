@@ -14,6 +14,8 @@ public class ImageEditorFrame extends JFrame
 		setVisible(true);
 		onOpen();
 		createMenuBar();
+		setVisible(true); 
+		setTitle("Leeres Fenster");
 	} 
 	
 	public static void main(String[] args)
