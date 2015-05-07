@@ -12,6 +12,9 @@ public class ImageEditorFrame extends JFrame
 		ImageEditorPanel panel = new ImageEditorPanel(); 
 		setDefaultCloseOperation(EXIT_ON_CLOSE); 
 		setSize(400, 300); 
+		setVisible(true);
+		onOpen();
+		createMenuBar();
 		setVisible(true); 
 		setTitle("Leeres Fenster");
 		setDummyImage(panel);
@@ -22,6 +25,30 @@ public class ImageEditorFrame extends JFrame
 	{
 		ImageEditorFrame frame = new ImageEditorFrame();
 		
+	}
+	
+	private void createMenuBar()
+	{ 
+		JMenuBar menuBar = new JMenuBar(); 
+		setJMenuBar(menuBar); 
+		JMenu menuFile = new JMenu("File"); 
+		menuBar.add(menuFile); 
+		JMenuItem menuItemOpen = new JMenuItem("Open"); 
+		menuFile.add(menuItemOpen); 
+		menuItemOpen.addActionListener( 
+			new ActionListener() 
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					onOpen();
+				}
+			}
+		);
+	}
+	
+	private void onOpen()
+	{
+		JOptionPane.showMessageDialog(this, "Open Selected");
 	}
 	private void setDummyImage(ImageEditorPanel panel) 
 	{ 
